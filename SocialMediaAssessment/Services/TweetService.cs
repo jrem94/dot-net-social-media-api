@@ -16,8 +16,6 @@ namespace SocialMediaAssessment.Services
         UserService us = new UserService();
         ValidateService vs = new ValidateService();
 
-        //GET
-
         public Tweet[] GetTweets()
         {
             var x = from tweet in db.SimpleTweets
@@ -145,8 +143,6 @@ namespace SocialMediaAssessment.Services
             throw new HttpResponseException(HttpStatusCode.NotFound);
         }
 
-        //POST
-
         public Tweet PostTweet(string content, Credential credentials)
         {
             if (vs.ValidateUsernameExists(credentials.Username) && us.GetUserByUsername(credentials.Username).Credentials == credentials)
@@ -205,8 +201,6 @@ namespace SocialMediaAssessment.Services
 
             throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-
-        //DELETE
 
         public Tweet DeleteTweetById(Credential credentials, int id)
         {

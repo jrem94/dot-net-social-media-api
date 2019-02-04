@@ -11,7 +11,6 @@ namespace SocialMediaAssessment.Services
     {
         ApiContext db = new ApiContext();
 
-        //Checks whether or not a given hashtag exists.
         public bool ValidateTagExists(string label)
         {
             var checkTag = from tag in db.HashTags
@@ -30,7 +29,6 @@ namespace SocialMediaAssessment.Services
 
         }
 
-        //Checks whether or not a given username exists.
         public bool ValidateUsernameExists(string username)
         {
             var checkUsername = from name in db.Users
@@ -48,7 +46,6 @@ namespace SocialMediaAssessment.Services
         
         }
 
-        //Checks whether or not a given username is available.
         public bool ValidateUsernameAvailable(string username)
         {
             if (ValidateUsernameExists(username))

@@ -10,7 +10,6 @@ namespace SocialMediaAssessment.Services
     {
         ApiContext db = new ApiContext();
 
-        //Retrieves all hashtags tracked by the database.
         public HashTag[] GetTags()
         {
             var checkTags = from tag in db.HashTags
@@ -21,11 +20,6 @@ namespace SocialMediaAssessment.Services
             return hashTags;
         }
 
-        /*
-         * Retrieves all (non-deleted) tweets tagged with the given hashtag label. The tweets should appear in reverse-chronological order.
-         * If no hashtag with the given label exists, an error should be sent in lieu of a response.
-         * A tweet is considered “tagged” by a hashtag if the tweet has content and the hashtag’s label appears in that content following a #
-        */
         public Tweet[] GetTagsByLabel(string label)
         {
 

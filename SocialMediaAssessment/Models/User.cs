@@ -12,8 +12,8 @@ namespace SocialMediaAssessment.Models
         public Profile Profile { get; set; }
         public DateTime Joined { get; set; }
         public bool IsDeleted { get; set; }
-        public List<User> Following { get; set; } //This user is following others
-        public List<User> Followers { get; set; } //Others are following this user
+        public List<User> Following { get; set; }
+        public List<User> Followers { get; set; }
         public List<Tweet> Authored { get; set; }
         public List<Tweet> Liked { get; set; }
         public Credential Credentials { get; set; }
