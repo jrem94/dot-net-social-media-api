@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using SocialMediaAssessment.Services;
 using SocialMediaAssessment.Models;
+using SocialMediaAssessment.DTOs;
 
 namespace SocialMediaAssessment.Controllers
 {
