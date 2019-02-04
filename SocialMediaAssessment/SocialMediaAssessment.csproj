@@ -259,6 +259,7 @@
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
@@ -301,6 +302,7 @@
     <Compile Include="DTOs\ReplyDto.cs" />
     <Compile Include="DTOs\RepostDto.cs" />
     <Compile Include="DTOs\SimpleTweetDto.cs" />
+    <Compile Include="DTOs\TweetDto.cs" />
     <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -6,7 +6,7 @@ using SocialMediaAssessment.Models;
 
 namespace SocialMediaAssessment.DTOs
 {
-    public class SimpleTweetDto
+    public class SimpleTweetDto : TweetDto
     {
         public int Id { get; set; }
         public User User { get; set; }

@@ -7,6 +7,7 @@ using System.Web.Http;
 using SocialMediaAssessment.Services;
 using SocialMediaAssessment.Models;
 using SocialMediaAssessment.DTOs;
+using AutoMapper;
 
 namespace SocialMediaAssessment.Controllers
 {
@@ -16,16 +17,16 @@ namespace SocialMediaAssessment.Controllers
 
         [Route("api/tags")]
         [HttpGet]
-        public HashTag[] GetTags()
+        public IEnumerable<HashTagDto> GetTags()
         {
-            return service.GetTags();
+            return service.GetTags().Select(Mapper.Map<HashTag, HashTagDto>);
         }
 
         [Route("api/tags/{label}")]
         [HttpGet]
-        public Tweet[] GetTagsByLabel(string label)
+        public IEnumerable<TweetDto> GetTagsByLabel(string label)
         {
-            return service.GetTagsByLabel(label);
+            return service.GetTagsByLabel(label).Select(Mapper.Map<Tweet, TweetDto>);
         }
     }
 }

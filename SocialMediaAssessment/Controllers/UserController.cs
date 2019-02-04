@@ -7,72 +7,68 @@ using System.Web.Http;
 using SocialMediaAssessment.Services;
 using SocialMediaAssessment.Models;
 using SocialMediaAssessment.DTOs;
+using AutoMapper;
 
 namespace SocialMediaAssessment.Controllers
 {
     public class UserController : ApiController
     {
         UserService service = new UserService();
-        
-
-        //GET
 
         [Route("api/users")]
         [HttpGet]
-        public User[] GetUsers()
+        public IEnumerable<UserDto> GetUsers()
         {
-            return service.GetUsers();
+            return service.GetUsers().Select(Mapper.Map<User, UserDto>);
         }
 
         [Route("api/users/{username}")]
         [HttpGet]
-        public User GetUserByUsername(string username)
+        public UserDto GetUserByUsername(string username)
         {
-            return service.GetUserByUsername(username);
+            return Mapper.Map<User, UserDto>(service.GetUserByUsername(username));
         }
 
         [Route("api/users/{username}/feed")]
         [HttpGet]
-        public Tweet[] GetFeedByUsername(string username)
+        public IEnumerable<TweetDto> GetFeedByUsername(string username)
         {
-            return service.GetFeedByUsername(username);
+            return service.GetFeedByUsername(username).Select(Mapper.Map<Tweet, TweetDto>);
         }
 
         [Route("api/users/{username}/tweets")]
         [HttpGet]
-        public Tweet[] GetTweetsByUsername(string username)
+        public IEnumerable<TweetDto> GetTweetsByUsername(string username)
         {
-            return service.GetTweetsByUsername(username);
+            return service.GetTweetsByUsername(username).Select(Mapper.Map<Tweet, TweetDto>);
         }
 
         [Route("api/users/{username}/mentions")]
         [HttpGet]
-        public Tweet[] GetMentionsByUsername(string username)
+        public IEnumerable<TweetDto> GetMentionsByUsername(string username)
         {
-            return service.GetMentionsByUsername(username);
+            return service.GetMentionsByUsername(username).Select(Mapper.Map<Tweet, TweetDto>);
         }
 
         [Route("api/users/{username}/followers")]
         [HttpGet]
-        public User[] GetFollowersByUsername(string username)
+        public IEnumerable<UserDto> GetFollowersByUsername(string username)
         {
-            return service.GetFollowersByUsername(username);
+            return service.GetFollowersByUsername(username).Select(Mapper.Map<User, UserDto>);
         }
 
         [Route("api/users/{username}/following")]
         [HttpGet]
-        public User[] GetFollowingByUsername(string username)
+        public IEnumerable<UserDto> GetFollowingByUsername(string username)
         {
-            return service.GetFollowingByUsername(username);
+            return service.GetFollowingByUsername(username).Select(Mapper.Map<User, UserDto>);
         }
-
-        //POST
 
         [Route("api/users")]
         [HttpPost]
-        public User PostUser([FromBody]Credential credentials, Profile profile)
+        public UserDto PostUser([FromBody]Credential credentials, Models.Profile profile)
         {
-            return service.PostUser(credentials, profile);
+            return Mapper.Map < User, UserDto > (service.PostUser(credentials, profile));
         }
 
         [Route("api/users/{username}/follow")]
@@ -89,20 +85,18 @@ namespace SocialMediaAssessment.Controllers
             service.UnsubscribeUser(credentials, username);
         }
 
-        //PATCH
-
         [Route("api/users/{username}")]
         [HttpPatch]
-        public User UpdateUserProfile([FromBody]Credential credentials, Profile profile, string username)
+        public UserDto UpdateUserProfile([FromBody]Credential credentials, Models.Profile profile, string username)
         {
-            return service.UpdateUserProfile(credentials, profile, username);
+            return Mapper.Map < User, UserDto > (service.UpdateUserProfile(credentials, profile, username));
         }
 
         [Route("api/users/{username}")]
         [HttpDelete]
-        public User DeleteUserByUsername([FromBody] Credential credentials, string username)
+        public UserDto DeleteUserByUsername([FromBody] Credential credentials, string username)
         {
-            return service.DeleteUserByUsername(credentials, username);
+            return Mapper.Map < User, UserDto > (service.DeleteUserByUsername(credentials, username));
         }
     }
 }
