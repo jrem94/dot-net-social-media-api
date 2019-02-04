@@ -544,3 +544,13 @@ C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessme
 C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\obj\Debug\SocialMediaAssessment.csproj.CopyComplete
 C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\obj\Debug\SocialMediaAssessment.dll
 C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\obj\Debug\SocialMediaAssessment.pdb
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Common.Logging.Core.dll
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Common.Logging.dll
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Quartz.dll
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Common.Logging.pdb
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Common.Logging.xml
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Common.Logging.Core.pdb
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Common.Logging.Core.xml
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\log4net.xml
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Quartz.pdb
+C:\Users\jrem9\Desktop\dotnet-assessment-social-media-jrem94\SocialMediaAssessment\bin\Quartz.xml

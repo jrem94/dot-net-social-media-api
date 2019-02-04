@@ -15,71 +15,69 @@ namespace SocialMediaAssessment.Controllers
     {
         TweetService service = new TweetService();
 
-        //GET
-
         [Route("api/tweets")]
         [HttpGet]
-        public Tweet[] GetTweets()
+        public IEnumerable<TweetDto> GetTweets()
         {
-            return service.GetTweets();
+            return service.GetTweets().Select(Mapper.Map<Tweet, TweetDto>);
         }
 
         [Route("api/tweets/{id}")]
         [HttpGet]
-        public Tweet GetTweetById(int id)
+        public TweetDto GetTweetById(int id)
         {
-            return service.GetTweetById(id);
+            return Mapper.Map<Tweet, TweetDto>(service.GetTweetById(id));
         }
 
         [Route("api/tweets/{id}/tags")]
         [HttpGet]
-        public HashTag[] GetTweetTags(int id)
+        public IEnumerable<HashTagDto> GetTweetTags(int id)
         {
-            return service.GetTweetTags(id);
+            return service.GetTweetTags(id).Select(Mapper.Map<HashTag, HashTagDto>);
         }
 
         [Route("api/tweets/{id}/likes")]
         [HttpGet]
-        public User[] GetTweetLikes(int id)
+        public IEnumerable<UserDto> GetTweetLikes(int id)
         {
-            return service.GetTweetLikes(id);
+            return service.GetTweetLikes(id).Select(Mapper.Map<User, UserDto>);
         }
 
         [Route("api/tweets/{id}/context")]
         [HttpGet]
-        public Context GetTweetContext(int id)
+        public ContextDto GetTweetContext(int id)
         {
-            return service.GetTweetContext(id);
+            return Mapper.Map<Context, ContextDto>(service.GetTweetContext(id));
         }
 
         [Route("api/tweets/{id}/replies")]
         [HttpGet]
-        public Tweet[] GetTweetReplies(int id)
+        public IEnumerable<TweetDto> GetTweetReplies(int id)
         {
-            return service.GetTweetReplies(id);
+            return service.GetTweetReplies(id).Select(Mapper.Map<Tweet, TweetDto>);
         }
 
         [Route("api/tweets/{id}/reposts")]
         [HttpGet]
-        public Tweet[] GetTweetReposts(int id)
+        public IEnumerable<TweetDto> GetTweetReposts(int id)
         {
-            return service.GetTweetReposts(id);
+            return service.GetTweetReposts(id).Select(Mapper.Map<Tweet, TweetDto>);
         }
 
         [Route("api/tweets/{id}/mentions")]
         [HttpGet]
-        public User[] GetTweetMentions(int id)
+        public IEnumerable<UserDto> GetTweetMentions(int id)
         {
-            return service.GetTweetMentions(id);
+            return service.GetTweetMentions(id).Select(Mapper.Map<User, UserDto>);
         }
 
         //POST
 
         [Route("api/tweets")]
         [HttpPost]
-        public Tweet PostTweet([FromBody]string content, Credential credentials)
+        public TweetDto PostTweet([FromBody]string content, Credential credentials)
         {
-            return service.PostTweet(content, credentials);
+            return Mapper.Map<Tweet, TweetDto>(service.PostTweet(content, credentials));
         }
 
         [Route("api/tweets/{id}/like")]
@@ -91,25 +89,25 @@ namespace SocialMediaAssessment.Controllers
 
         [Route("api/tweets/{id}/reply")]
         [HttpPost]
-        public Tweet PostReply([FromBody]string content, Credential credentials, int id)
+        public TweetDto PostReply([FromBody]string content, Credential credentials, int id)
         {
-            return service.PostReply(content, credentials, id);
+            return Mapper.Map<Tweet, TweetDto>(service.PostReply(content, credentials, id));
         }
 
         [Route("api/tweets/{id}/repost")]
         [HttpPost]
-        public Tweet PostRepost([FromBody]Credential credentials, int id)
+        public TweetDto PostRepost([FromBody]Credential credentials, int id)
         {
-            return service.PostRepost(credentials, id);
+            return Mapper.Map<Tweet, TweetDto>(service.PostRepost(credentials, id));
         }
 
         //DELETE
 
         [Route("api/tweets/{id}")]
         [HttpDelete]
-        public Tweet DeleteTweetById([FromBody] Credential credentials, int id)
+        public TweetDto DeleteTweetById([FromBody] Credential credentials, int id)
         {
-            return service.DeleteTweetById(credentials, id);
+            return Mapper.Map<Tweet, TweetDto>(service.DeleteTweetById(credentials, id));
         }
     }
 }
