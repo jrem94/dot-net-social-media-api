@@ -12,21 +12,21 @@ namespace SocialMediaAssessment.Controllers
     {
         ValidateService service = new ValidateService();
 
-        [Route("api/validate/tag/exists/{label: string}")]
+        [Route("api/validate/tag/exists/{label}")]
         [HttpGet]
         public bool ValidateTagExists(string label)
         {
             return service.ValidateTagExists(label);
         }
 
-        [Route("api/validate/username/exists/{username: string}")]
+        [Route("api/validate/username/exists/{username}")]
         [HttpGet]
         public bool ValidateUsernameExists(string username)
         {
             return service.ValidateUsernameExists(username);
         }
 
-        [Route("api/validate/tag/exists/{username: string}")]
+        [Route("api/validate/tag/exists/{username}")]
         [HttpGet]
         public bool ValidateUsernameAvailable(string username)
         {

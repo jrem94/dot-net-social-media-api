@@ -23,42 +23,42 @@ namespace SocialMediaAssessment.Controllers
             return service.GetUsers();
         }
 
-        [Route("api/users/{username: string}")]
+        [Route("api/users/{username}")]
         [HttpGet]
         public User GetUserByUsername(string username)
         {
             return service.GetUserByUsername(username);
         }
 
-        [Route("api/users/{username: string}/feed")]
+        [Route("api/users/{username}/feed")]
         [HttpGet]
         public Tweet[] GetFeedByUsername(string username)
         {
             return service.GetFeedByUsername(username);
         }
 
-        [Route("api/users/{username: string}/tweets")]
+        [Route("api/users/{username}/tweets")]
         [HttpGet]
         public Tweet[] GetTweetsByUsername(string username)
         {
             return service.GetTweetsByUsername(username);
         }
 
-        [Route("api/users/{username: string}/mentions")]
+        [Route("api/users/{username}/mentions")]
         [HttpGet]
         public Tweet[] GetMentionsByUsername(string username)
         {
             return service.GetMentionsByUsername(username);
         }
 
-        [Route("api/users/{username: string}/followers")]
+        [Route("api/users/{username}/followers")]
         [HttpGet]
         public User[] GetFollowersByUsername(string username)
         {
             return service.GetFollowersByUsername(username);
         }
 
-        [Route("api/users/{username: string}/following")]
+        [Route("api/users/{username}/following")]
         [HttpGet]
         public User[] GetFollowingByUsername(string username)
         {
@@ -74,14 +74,14 @@ namespace SocialMediaAssessment.Controllers
             return service.PostUser(credentials, profile);
         }
 
-        [Route("api/users/{username: string}/follow")]
+        [Route("api/users/{username}/follow")]
         [HttpPost]
         public void SubscribeUser([FromBody]Credential credentials, string username)
         {
             service.SubscribeUser(credentials, username);
         }
 
-        [Route("api/users/{username: string}/unfollow")]
+        [Route("api/users/{username}/unfollow")]
         [HttpPost]
         public void UnsubscribeUser([FromBody] Credential credentials, string username)
         {
@@ -90,14 +90,14 @@ namespace SocialMediaAssessment.Controllers
 
         //PATCH
 
-        [Route("api/users/{username: string}")]
+        [Route("api/users/{username}")]
         [HttpPatch]
         public User UpdateUserProfile([FromBody]Credential credentials, Profile profile, string username)
         {
             return service.UpdateUserProfile(credentials, profile, username);
         }
 
-        [Route("api/users/{username: string}")]
+        [Route("api/users/{username}")]
         [HttpDelete]
         public User DeleteUserByUsername([FromBody] Credential credentials, string username)
         {

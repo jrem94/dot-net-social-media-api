@@ -20,7 +20,7 @@ namespace SocialMediaAssessment.Controllers
             return service.GetTags();
         }
 
-        [Route("api/tags/{label: string}")]
+        [Route("api/tags/{label}")]
         [HttpGet]
         public Tweet[] GetTagsByLabel(string label)
         {
